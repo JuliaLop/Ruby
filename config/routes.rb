@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root to: "pages#index"
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
 
     resources :users, only: :show
-    resources :pages, only: index, path: "/"
+    resources :pages, only: :index, path:"/"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
